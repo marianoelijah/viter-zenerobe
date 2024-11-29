@@ -1,35 +1,37 @@
 import { imgPath } from "@/components/helpers/functions-general";
-import { Clapperboard, LayoutDashboard, Megaphone, Star, UtensilsCrossed } from "lucide-react";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import {
+  HandPlatter,
+  LayoutDashboard,
+  Megaphone,
+  ScrollText,
+} from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 const SideNavigation = ({ menu }) => {
   const links = [
     {
       title: "Dashboard",
       slug: "/admin/dashboard",
-      icon: <LayoutDashboard size={16}/>,
+      icon: <LayoutDashboard size={16} />,
     },
-    {
-      title: "Advertisement",
-      slug: "/admin/advertisement",
-      icon: <Megaphone size={16}/>,
-    },
+
     {
       title: "Clothes",
       slug: "/admin/clothes",
-      icon: <Shirt size={16}/>
+      icon: <HandPlatter size={16} />,
     },
     {
       title: "Category",
       slug: "/admin/category",
-      icon: <ChartBarStacked size={16}/>
+      icon: <ScrollText size={16} />,
     },
   ];
   return (
     <>
       <aside className="p-4 border-r border-line">
-
+        <Link to="/">
+          <h3 className="text-center font-bold">ZENOROBE</h3>
+        </Link> 
         <nav>
           <ul className="mt-10">
             {links.map((item, key) => (
@@ -41,8 +43,11 @@ const SideNavigation = ({ menu }) => {
                 } p-2 py-2 mb-2 rounded-md border border-transparent opacity-60 hover:opacity-100`}
                 key={key}
               >
-                <NavLink to={`${item.slug}`} className="flex items-center gap-2">
-                  
+                <NavLink
+                  to={`${item.slug}`}
+                  className="flex gap-2 text-base items-center"
+                >
+                  {item.icon}
                   {item.title}
                 </NavLink>
               </li>

@@ -1,8 +1,9 @@
 import { Archive, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
-import { setIsConfirm } from "@/components/store/storeAction";
-import { StoreContext } from "@/components/store/storeContext";
+
+import { StoreContext } from "../../store/storeContext";
+import { setIsConfirm } from "../../store/storeAction";
 
 const ModalConfirm = () => {
   const { dispatch } = React.useContext(StoreContext);

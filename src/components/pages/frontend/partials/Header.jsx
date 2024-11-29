@@ -15,11 +15,9 @@ const Header = () => {
   return (
     <header
       className={`${
-        scrollPosition > 150
-          ? "bg-white text-black"
-          : "bg-transparent text-white"
+        scrollPosition > 150 ? "bg-white" : "bg-transparent text-black"
       } fixed w-full top-0 left-0 bg-transparent z-50 md:hover:bg-white transition-all ${
-        isOpen ? "bg-white text-black" : "bg-transparent !text-white"
+        isOpen ? "bg-white" : "bg-transparent !text-white"
       }`}
     >
       <div className="container">
@@ -28,7 +26,7 @@ const Header = () => {
             scrollPosition > 150 ? "!text-black" : ""
           } flex justify-between items-center py-4 md:hover:text-black`}
         >
-        <button
+          <button
             className={`${isOpen ? "active" : ""} menu-btn md:hidden `}
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -54,7 +52,7 @@ const Header = () => {
           </Link>
 
           <nav
-            className={`fixed md:static w-full h-screen md:h-auto top-[61px] left-0 bg-white md:bg-transparent md:w-auto ${
+            className={`fixed md:static w-full h-screen md:h-auto top-[90px] left-0 bg-white md:bg-transparent md:w-auto z-10 ${
               isOpen ? "text-black block" : "hidden md:block"
             }`}
           >
@@ -86,7 +84,7 @@ const Header = () => {
 
           <ul className="flex gap-5  group-hover:text-black">
             <li className="hidden md:block">
-              <Link to="/account">Account</Link>
+              <Link to="/admin/login">Account</Link>
             </li>
             <li>
               <button>
@@ -94,9 +92,11 @@ const Header = () => {
               </button>
             </li>
             <li>
-              <button>
-                <ShoppingBasket strokeWidth={1} />
-              </button>
+              <Link to="/admin/dashboard">
+                <button>
+                  <ShoppingBasket strokeWidth={1} />
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

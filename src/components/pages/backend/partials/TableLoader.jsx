@@ -1,35 +1,25 @@
+
+import { CheckCircle } from "lucide-react";
 import React from "react";
+import { StoreContext } from "../store/storeContext";
 
-const TableLoader = ({ count = 15, cols = 3 }) => {
-  const box = [];
-  let i;
+const ToastSuccess = () => {
+  const { store, dispatch } = React.useContext(StoreContext);
 
-  let innerBox = () => {
-    while (count % cols !== 0) {
-      count++;
-    }
-    return count;
-  };
+  React.useEffect(() => {
+    setTimeout(() => { 
+      dispatch(setSuccess(false));
 
-  for (i = 1; i <= innerBox(); i++) {
-    box.push(
-      <div
-        key={i}
-        className=" bg-secondary p-1.5 h-[7px] w-full rounded-md relative loading-bar overflow-hidden"
-      ></div>
-    );
-  }
-
-  if (cols !== 0) {
-    return (
-      <div
-        className="grid p-2 gap-4"
-        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
-      >
-        {box}
+    }, 2000)
+  }, [])
+  return (
+    <>
+      <div className=" fixed top-10 left-1/2 -translate-x-1/2 border border-line bg-primary text-success flex gap-2 items-center p-1.5 px-2.5 rounded-md">
+        <CheckCircle size={16} />
+        Record Successfully {store.message}!
       </div>
-    );
-  }
+    </>
+  );
 };
 
-export default TableLoader;
+export default ToastSuccess;

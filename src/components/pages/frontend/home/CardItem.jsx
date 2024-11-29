@@ -1,7 +1,7 @@
 import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { imgPath } from '../helpers/functions-general';
+import { imgPath } from '../../../helpers/functions-general';
 import { Link } from 'react-router-dom';
 
 const CardItem = ({item, key}) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { imgPath } from '../helpers/functions-general';
+import { imgPath } from '../../../helpers/functions-general';
 
 const FullPageLink = ({img, header, subheader}) => {
   return (

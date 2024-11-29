@@ -1,8 +1,8 @@
 import { Archive, Info, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
-import { StoreContext } from "@/components/store/storeContext";
-import { setValidate } from "@/components/store/storeAction";
+import { StoreContext } from "../../store/storeContext";
+import { setValidate } from "../../store/storeAction";
 
 const ModalValidation = () => {
     const { dispatch } = React.useContext(StoreContext);
